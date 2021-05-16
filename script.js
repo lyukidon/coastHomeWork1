@@ -5,7 +5,7 @@ function calculate(){
     let period = +document.querySelector("input#period").value;
     let kh = 0.1;
     while (((2*3.14/period)**2*height)/(9.8*kh) >= Math.tanh(kh)){
-        kh=kh+0.1;
+        kh=kh+0.000001;
     }
     return kh;
 }
