@@ -9,7 +9,8 @@ function makeArr(){
     }
     for(let i=0; i <= 5000; i=i+100){
         xaxes2.push(i);
-        yaxes2.push(calculate(i,period));
+        let L = 2*3.14/(calculatekh(i,period)/+document.querySelector("input#height").value)
+        yaxes2.push(L);
     }
     draw2();
     click2++
