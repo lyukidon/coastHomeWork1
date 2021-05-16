@@ -1,23 +1,36 @@
 let xaxes2 = [];
-let yaxes2 = [];
+let arrL = [];
+let arrC = [];
+let shallowC = [];
 let click2 = 0;
+function clearArr(){
+    xaxes2 = [];
+    arrL = [];
+    arrC = [];
+    shallowC = [];
+}
 function makeArr(){
     let period = +document.querySelector("input#period").value;
     if(xaxes2.length != 0){
-        xaxes2 = [];
-        yaxes2 = [];
+        clearArr();
     }
     for(let i=0; i <= 5000; i=i+100){
         xaxes2.push(i);
-        let L = 2*3.14/(calculatekh(i,period)/+document.querySelector("input#height").value)
-        yaxes2.push(L);
+        let L = 2*3.14/(calculatekh(i,period)/+document.querySelector("input#height").value);
+        let C = L/+document.querySelector("input#height").value;
+        let shallowCelerity = Math.sqrt(C*9.8);
+        arrL.push(L);
+        arrC.push(C);
+        shallowC.push(shallowCelerity);
     }
+    console.log(shallowC)
     draw2();
+    draw3();
     click2++
 }
 //graph
-var ctx2 = document.querySelector('canvas#graph2').getContext('2d');
-var lineGraph2;
+let ctx2 = document.querySelector('canvas#graph2').getContext('2d');
+let lineGraph2;
 function draw2(){
     if(!click2){
         lineGraph2 = new Chart(ctx2, {
@@ -26,7 +39,7 @@ function draw2(){
                 labels: xaxes2,
                 datasets: [{
                     label: '파장',
-                    data: yaxes2,
+                    data: arrL,
                     borderColor: "blue",
                     fill:false,
                     borderWidth: 1
@@ -56,11 +69,10 @@ function draw2(){
             }
         });
     }else{
-        console.log(lineGraph2)
         lineGraph2.data.labels = xaxes2;
-        lineGraph2.data.datasets[0].data = yaxes2;
+        lineGraph2.data.datasets[0].data = arrL;
         lineGraph2.update();
     }
 }
 
-document.querySelector('button#makeGraph').addEventListener('click', makeArr);
+document.querySelector('button#makeGraph2').addEventListener('click', makeArr);
