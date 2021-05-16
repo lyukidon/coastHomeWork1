@@ -15,11 +15,11 @@
                 1. Dispersion relationship을 사용하여 주어진 수심(d)와 주기(T)에 대해 파장(L)을 계산하는 code를 작성하시오
             </h3>
             <article>
-                중간 수심파 σ^2*h/gkh = tanh*kh 를 이용해 kh를 구하기 (중력가속도:9.8m/s, 원주율:3.141592로 계산)
+                <!-- 중간 수심파 σ^2*h/gkh = tanh*kh 를 이용해 kh를 구하기 (중력가속도:9.8m/s, 원주율:3.141592로 계산) -->
             </article>
             <article>
                 수심(m)<input id='height' type="text" name="height" value="100" >
-                주기(sec)<input id="period"type="text" name="period" value="10" >
+                주기(sec)<input id="period"type="text" name="period" value="100" >
             </article>
             <button id="calculate">kh구하기</button>
             <article>
@@ -38,14 +38,15 @@
             </article>
             <article id="waveLength"></article>
         </section>
+
+        <h3>
+            원하는 주기를 1번의 박스에 적은 후 버튼 눌러주세요.
+        </h3>
+        <button id='makeGraph2'>그래프 그리기</button>
         <div>
             <h3 class="quest">
                 2. 일정한 주기에서 수심을 변화시켜 파장의 변화를 그래프로 표현하시오
             </h3>
-            <div>
-                원하는 주기를 1번의 박스에 적은 후 버튼 눌러주세요.
-            </div>
-            <button id='makeGraph2'>그래프 그리기</button>
             <div id="graphBox2" class="graphBox">
                 <canvas id="graph2" width="20px" height="20px"></canvas>
             </div>
@@ -62,6 +63,9 @@
             <h3 class="quest">
                 4. 3번내용에서와 유사하게, 정해진 주기에서 수심의 변화에 따른 위상속도와 군속도를 계산하고 비교하는 그래프를 그리시오.
             </h3>
+            <div id="graphBox4" class="graphBox">
+                <canvas id="graph4" width="20px" height="20px"></canvas>
+            </div>
         </div>
     </section>
     
