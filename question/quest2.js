@@ -1,53 +1,64 @@
-let xaxes = [];
-let yaxes = [];
+let xaxes2 = [];
+let yaxes2 = [];
+let click2 = 0;
 function makeArr(){
     let period = +document.querySelector("input#period").value;
-    if(xaxes.length != 0){
-        xaxes = [];
-        yaxes = [];
+    if(xaxes2.length != 0){
+        xaxes2 = [];
+        yaxes2 = [];
     }
     for(let i=0; i <= 1000; i=i+100){
-        xaxes.push(i);
-        yaxes.push(calculate(i,period));
+        xaxes2.push(i);
+        yaxes2.push(calculate(i,period));
     }
-    draw1();
+    draw2();
+    click2++
 }
 //graph
-function draw1(){
-    var ctx = document.querySelector('canvas#graph1').getContext('2d');
-    var graph1 = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: xaxes,
-            datasets: [{
-                label: '파장',
-                data: yaxes,
-                borderColor: "blue",
-                fill:false,
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: '깊이'
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    ticks: {
-                        suggestedMin: 0,
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: '파장 L'
-                    }
+var ctx2 = document.querySelector('canvas#graph2').getContext('2d');
+var lineGraph2;
+function draw2(){
+    if(!click2){
+        lineGraph2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: xaxes2,
+                datasets: [{
+                    label: '파장',
+                    data: yaxes2,
+                    borderColor: "blue",
+                    fill:false,
+                    borderWidth: 1
                 }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: '깊이'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            suggestedMin: 0,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: '파장 L'
+                        }
+                    }]
+                }
             }
-        }
-    });
+        });
+    }else{
+        console.log(lineGraph2)
+        lineGraph2.data.labels = xaxes2;
+        lineGraph2.data.datasets[0].data = yaxes2;
+        lineGraph2.update();
+    }
 }
+
 document.querySelector('button#makeGraph').addEventListener('click', makeArr);
