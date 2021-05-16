@@ -7,7 +7,7 @@ function makeArr(){
         xaxes2 = [];
         yaxes2 = [];
     }
-    for(let i=0; i <= 1000; i=i+100){
+    for(let i=0; i <= 5000; i=i+100){
         xaxes2.push(i);
         yaxes2.push(calculate(i,period));
     }
@@ -32,6 +32,7 @@ function draw2(){
                 }]
             },
             options: {
+                maintainAspectRatio: false,
                 scales: {
                     xAxes: [{
                         display: true,

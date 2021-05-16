@@ -2,7 +2,7 @@
 function calculate(height, period){
     let kh = 0;
     while (((2*3.14/period)**2*height)/(9.8*kh) >= Math.tanh(kh)){
-        kh=kh+0.0001;
+        kh=kh+0.001;
     }
     return kh;
 }
