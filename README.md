@@ -1,0 +1,1 @@
+**Dispersion relationship을 사용한 파장과 속도 구하기**
