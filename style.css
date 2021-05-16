@@ -1,0 +1,23 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+canvas{
+    width: 100px;
+    height: 100px;
+}
+.block{
+    display: block;
+}
+.inlineBlock{
+    display: inline-block;
+}
+.quest{
+    margin: 10px;
+}
+.ans{
+    
+}
