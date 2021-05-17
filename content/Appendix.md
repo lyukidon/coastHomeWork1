@@ -691,6 +691,33 @@ Appendix
         
     }
 
+- **CSS**
+
+        canvas{
+
+            width: 100px;
+
+            height: 100px;
+
+        }
+        .block{
+
+            display: block;
+
+        }
+
+        .inlineBlock{
+
+            display: inline-block;
+
+        }
+
+        .quest{
+
+            margin: 10px;
+            
+        }
+
 ***JavaScript Library - Graph***
 
 - Chart.js
