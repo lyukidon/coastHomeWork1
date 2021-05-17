@@ -1,21 +1,21 @@
 //그래프
 let ctx4 = document.querySelector('canvas#graph4').getContext('2d');
 let lineGraph4;
-function draw3(){
+function draw4(){
     if(!click2){
-        lineGraph3 = new Chart(ctx3, {
+        lineGraph3 = new Chart(ctx4, {
             type: 'line',
             data: {
-                labels: xaxes2,
+                labels: graphObj.xaxes2,
                 datasets: [{
                     label: '위상 속도',
-                    data: arrC,
+                    data: graphObj.arrC,
                     borderColor: "blue",
                     fill:false,
                     borderWidth: 1
                 },{
                     label: '군 속도',
-                    data: shallowC,
+                    data: graphObj.arrCg,
                     borderColor: "red",
                     fill:false,
                     borderWidth: 1
@@ -45,8 +45,8 @@ function draw3(){
             }
         });
     }else{
-        console.log(lineGraph3)
-        lineGraph3.data.datasets[0].data = arrC;
-        lineGraph3.update();
+        lineGraph4.data.datasets[0].data = graphObj.arrC;
+        lineGraph4.data.datasets[1].data = graphObj.arrCg;
+        lineGraph4.update();
     }
 }

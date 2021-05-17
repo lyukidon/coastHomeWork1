@@ -13,6 +13,7 @@ function clearArr(){
     graphObj.arrL = [];
     graphObj.arrC = [];
     graphObj.shallowC = [];
+    graphObj.arrCg = [];
 }
 function makeArr(){
     let period = +document.querySelector("input#period").value;
@@ -30,9 +31,9 @@ function makeArr(){
         graphObj.shallowC.push(shallowCelerity);
         graphObj.arrCg.push(Cg);
     }
-    console.log(graphObj)
     draw2();
     draw3();
+    draw4();
     click2++;
 }
 //graph
