@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="lib/showdown.min.js"></script>
     <title>Homework</title>
 </head>
 <body>
@@ -67,11 +68,45 @@
                 <canvas id="graph4" width="20px" height="20px"></canvas>
             </div>
         </div>
+        <div>
+            <div id="wrapper"></div>
+        </div>
     </section>
     
     <script type="text/javascript" src="./question/quest1.js"></script>
     <script type="text/javascript" src="./question/quest2.js"></script>
     <script type="text/javascript" src="./question/quest3.js"></script>
     <script type="text/javascript" src="./question/quest4.js"></script>
+    <script>
+        (function () {
+            var wrapper = document.getElementById("wrapper");
+            var converter = new showdown.Converter();
+            var markdownFormat = "There is no markdown file";
+    
+            window.onresize = function () {
+                if(window.innerWidth < 600){
+                    wrapper.setAttribute("class", "mobile");
+                }else{
+                    wrapper.removeAttribute("class");
+                }
+            };
+    
+            readTextFile("content/content.md");
+            let html = converter.makeHtml(markdownFormat);
+            wrapper.innerHTML = html;
+            function readTextFile(file) {
+                var rawFile = new XMLHttpRequest();
+                rawFile.open("GET", file, false);
+                rawFile.onreadystatechange = function () {
+                    if (rawFile.readyState === 4) {
+                        if (rawFile.status === 200 || rawFile.status == 0) {
+                            markdownFormat = rawFile.responseText;
+                        }
+                    }
+                };
+                rawFile.send(null);
+            }
+        })();
+    </script>
 </body>
 </html>
