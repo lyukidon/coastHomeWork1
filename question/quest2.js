@@ -1,28 +1,36 @@
-let xaxes2 = [];
-let arrL = [];
-let arrC = [];
-let shallowC = [];
+let graphObj = {
+    xaxes2: [],
+    arrL: [],
+    arrC: [],
+    shallowC: [],
+    arrCg: [],
+}
+
 let click2 = 0;
+
 function clearArr(){
-    xaxes2 = [];
-    arrL = [];
-    arrC = [];
-    shallowC = [];
+    graphObj.xaxes2 = [];
+    graphObj.arrL = [];
+    graphObj.arrC = [];
+    graphObj.shallowC = [];
 }
 function makeArr(){
     let period = +document.querySelector("input#period").value;
-    if(xaxes2.length != 0){
+    if(graphObj.xaxes2.length != 0){
         clearArr();
     }
-    for(let i=0; i <= 2000; i=i+20){
-        xaxes2.push(i);
+    for(let i=0; i <= 2000; i=i+50){
+        graphObj.xaxes2.push(i);
         let L = 2*3.141592/(calculatekh(i,period)/i);
         let C = L/i;
         let shallowCelerity = Math.sqrt(i*9.8);
-        arrL.push(L);
-        arrC.push(C);
-        shallowC.push(shallowCelerity);
+        let Cg = ((1+2*calculatekh(i,period)/Math.sinh(2*calculatekh(i,period)))/2)*C;
+        graphObj.arrL.push(L);
+        graphObj.arrC.push(C);
+        graphObj.shallowC.push(shallowCelerity);
+        graphObj.arrCg.push(Cg);
     }
+    console.log(graphObj)
     draw2();
     draw3();
     click2++;
@@ -35,10 +43,10 @@ function draw2(){
         lineGraph2 = new Chart(ctx2, {
             type: 'line',
             data: {
-                labels: xaxes2,
+                labels: graphObj.xaxes2,
                 datasets: [{
                     label: '파장',
-                    data: arrL,
+                    data: graphObj.arrL,
                     borderColor: "blue",
                     fill:false,
                     borderWidth: 1
@@ -51,7 +59,7 @@ function draw2(){
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: '깊이'
+                            labelString: '깊이 (m)'
                         }
                     }],
                     yAxes: [{
@@ -61,15 +69,15 @@ function draw2(){
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: '파장 L'
+                            labelString: '파장 (m)'
                         }
                     }]
                 }
             }
         });
     }else{
-        lineGraph2.data.labels = xaxes2;
-        lineGraph2.data.datasets[0].data = arrL;
+        lineGraph2.data.labels = graphObj.xaxes2;
+        lineGraph2.data.datasets[0].data = graphObj.arrL;
         lineGraph2.update();
     }
 }

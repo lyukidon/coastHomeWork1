@@ -1,7 +1,7 @@
 //ㅠ는 3.14로 계산, g는 9.8로 계산
 function calculatekh(height, period){
     let kh = 0;
-    while (((2*3.141592/period)**2*height)/(9.8*kh) >= Math.tanh(kh)){
+    while ( ( ( (2*3.141592/period)**2) *height) /(9.8*kh) >= Math.tanh(kh) ){
         kh=kh+0.001;
     }
     return kh;

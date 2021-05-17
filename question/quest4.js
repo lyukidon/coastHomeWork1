@@ -8,13 +8,13 @@ function draw3(){
             data: {
                 labels: xaxes2,
                 datasets: [{
-                    label: '속도 C',
+                    label: '위상 속도',
                     data: arrC,
                     borderColor: "blue",
                     fill:false,
                     borderWidth: 1
                 },{
-                    label: 'Shallow Water Celerity',
+                    label: '군 속도',
                     data: shallowC,
                     borderColor: "red",
                     fill:false,
@@ -28,7 +28,7 @@ function draw3(){
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: '깊이'
+                            labelString: '깊이 (m)'
                         }
                     }],
                     yAxes: [{
@@ -38,7 +38,7 @@ function draw3(){
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: '속도 C'
+                            labelString: '속도 (m/s)'
                         }
                     }]
                 }

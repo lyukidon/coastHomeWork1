@@ -6,16 +6,16 @@ function draw3(){
         lineGraph3 = new Chart(ctx3, {
             type: 'line',
             data: {
-                labels: xaxes2,
+                labels: graphObj.xaxes2,
                 datasets: [{
-                    label: '속도 C',
-                    data: arrC,
+                    label: '속도',
+                    data: graphObj.arrC,
                     borderColor: "blue",
                     fill:false,
                     borderWidth: 1
                 },{
                     label: 'Shallow Water Celerity',
-                    data: shallowC,
+                    data: graphObj.shallowC,
                     borderColor: "red",
                     fill:false,
                     borderWidth: 1
@@ -28,7 +28,7 @@ function draw3(){
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: '깊이'
+                            labelString: '깊이 (m)'
                         }
                     }],
                     yAxes: [{
@@ -38,7 +38,7 @@ function draw3(){
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: '속도 C'
+                            labelString: '속도 (m/s)'
                         }
                     }]
                 }
@@ -46,7 +46,7 @@ function draw3(){
         });
     }else{
         console.log(lineGraph3)
-        lineGraph3.data.datasets[0].data = arrC;
+        lineGraph3.data.datasets[0].data = graphObj.arrC;
         lineGraph3.update();
     }
 }
