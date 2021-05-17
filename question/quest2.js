@@ -31,6 +31,11 @@ function makeArr(){
         graphObj.shallowC.push(shallowCelerity);
         graphObj.arrCg.push(Cg);
     }
+    let boxArr = [...document.querySelectorAll(".graphBox")];
+    for(let i in boxArr){
+        boxArr[i].style.width = '550px';
+        boxArr[i].style.height = '270px';
+    }
     draw2();
     draw3();
     draw4();
