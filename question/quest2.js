@@ -14,11 +14,11 @@ function makeArr(){
     if(xaxes2.length != 0){
         clearArr();
     }
-    for(let i=0; i <= 5000; i=i+100){
+    for(let i=0; i <= 2000; i=i+20){
         xaxes2.push(i);
-        let L = 2*3.14/(calculatekh(i,period)/+document.querySelector("input#height").value);
-        let C = L/+document.querySelector("input#height").value;
-        let shallowCelerity = Math.sqrt(+document.querySelector("input#height").value*9.8);
+        let L = 2*3.141592/(calculatekh(i,period)/i);
+        let C = L/i;
+        let shallowCelerity = Math.sqrt(i*9.8);
         arrL.push(L);
         arrC.push(C);
         shallowC.push(shallowCelerity);
