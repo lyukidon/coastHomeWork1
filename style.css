@@ -1,6 +1,6 @@
-canvas{
-    width: 100px;
-    height: 100px;
+body{
+    margin: 0 auto;
+    width: 70vw;
 }
 .block{
     display: block;
@@ -9,5 +9,17 @@ canvas{
     display: inline-block;
 }
 .quest{
-    margin: 10px;
+    margin: 10px 0px;
+}
+.questBox{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px 0px;
+    padding: 20px;
+}
+#quest1sol{
+    display:none;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px;
 }

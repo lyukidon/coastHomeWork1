@@ -1,9 +1,9 @@
 Appendix
 ===================
 
-***Code***
-
-- **HTML**
+-----------
+HTML
+-----------
 
         <html lang="en">
 
@@ -165,8 +165,9 @@ Appendix
 
         </html>
 
-
-- **JavaScript**
+----------
+JavaScript
+----------
 
     function calculatekh(height, period){
 
@@ -691,7 +692,9 @@ Appendix
         
     }
 
-- **CSS**
+-----------
+CSS
+------------
 
         canvas{
 
@@ -718,10 +721,14 @@ Appendix
             
         }
 
-***JavaScript Library - Graph***
+-----------
+JavaScript Library - Graph
+-----------
 
 - Chart.js
 
-***MarkDown Viewer***
+----------------
+MarkDown Viewer
+----------------
 
 - jhleed, https://github.com/jhleed/markdown_viewer

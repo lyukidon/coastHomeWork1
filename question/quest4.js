@@ -3,7 +3,7 @@ let ctx4 = document.querySelector('canvas#graph4').getContext('2d');
 let lineGraph4;
 function draw4(){
     if(!click2){
-        lineGraph3 = new Chart(ctx4, {
+        lineGraph4 = new Chart(ctx4, {
             type: 'line',
             data: {
                 labels: graphObj.xaxes2,

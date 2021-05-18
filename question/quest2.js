@@ -22,10 +22,11 @@ function makeArr(){
     }
     for(let i=0; i <= 2000; i=i+50){
         graphObj.xaxes2.push(i);
-        let L = 2*3.141592/(calculatekh(i,period)/i);
-        let C = L/i;
+        let khResult = calculatekh(i,period)
+        let L = 2*3.141592/(khResult/i);
+        let C = L/period;
         let shallowCelerity = Math.sqrt(i*9.8);
-        let Cg = ((1+2*calculatekh(i,period)/Math.sinh(2*calculatekh(i,period)))/2)*C;
+        let Cg = ((1+2*khResult/Math.sinh(2*khResult))/2)*C;
         graphObj.arrL.push(L);
         graphObj.arrC.push(C);
         graphObj.shallowC.push(shallowCelerity);
@@ -33,9 +34,10 @@ function makeArr(){
     }
     let boxArr = [...document.querySelectorAll(".graphBox")];
     for(let i in boxArr){
-        boxArr[i].style.width = '550px';
-        boxArr[i].style.height = '270px';
+        boxArr[i].style.width = '100%';
+        boxArr[i].style.height = '300px';
     }
+    console.log(graphObj.arrC)
     draw2();
     draw3();
     draw4();
