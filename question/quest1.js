@@ -14,7 +14,7 @@ function pushHT(){
 document.querySelector('button#calculate').addEventListener('click',function(){
     let answerkh = pushHT();
     let answerk = +answerkh/+document.querySelector("input#height").value;
-    let answerL = 2*3.14/answerk;
+    let answerL = 2*3.141592/answerk;
     document.querySelector('span#answerkh').innerHTML = answerkh;
     document.querySelector('span#answerk').innerHTML = answerk;
     document.querySelector('span#answerL').innerHTML = answerL + " (m)";

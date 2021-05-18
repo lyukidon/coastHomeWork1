@@ -37,7 +37,6 @@ function makeArr(){
         boxArr[i].style.width = '100%';
         boxArr[i].style.height = '300px';
     }
-    console.log(graphObj.arrC)
     draw2();
     draw3();
     draw4();
