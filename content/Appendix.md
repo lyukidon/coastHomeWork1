@@ -114,7 +114,9 @@ HTML
 
         <h3 class="quest">
 
-        3. 일정한 주기와 dispersion relationship을 통해 계산된 파장을 사용하여 shallow water 부터 deep water 까지 수심을 변화시켜 파랑의 속도(celerity=L/T)를 계산하고, shallow water celerity (=√gh)값과 비교하는 그래프를 그리시오
+        3. 일정한 주기와 dispersion relationship을 통해 계산된 파장을 사용하여 shallow water 부터 deep water 까지
+        
+        수심을 변화시켜 파랑의 속도(celerity=L/T)를 계산하고, shallow water celerity (=√gh)값과 비교하는 그래프를 그리시오
 
         </h3>
 

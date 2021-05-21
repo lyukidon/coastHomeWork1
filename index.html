@@ -1,125 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="lib/showdown.min.js"></script>
-    <title>Homework</title>
-</head>
-<body>
-    <header>
-        <div id="introMD"></div>
-    </header>
-    <main>
-        <div id="solution"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="lib/showdown.min.js"></script>
+        <title>Homework</title>
+    </head>
+    <body>
+        <header>
+            <div id="introMD"></div>
+        </header>
+        <main>
+            <div id="solution"></div>
 
-        <!-- 1번 -->
+            <!-- 1번 -->
 
-        <section class="questBox">
-            <h3 class="quest">
-                1. Dispersion relationship을 사용하여 주어진 수심(d)와 주기(T)에 대해 파장(L)을 계산하는 code를 작성하시오
-            </h3>
-            <h5>
-                중간 수심파 σ^2*h/gkh = tanh*kh 를 이용 (중력가속도:9.8m/s, 원주율:3.141592로 계산)
-            </h5>
-            <div class="inlineBlock">
-                <div>
-                    수심(m)<input id='height' type="text" name="height" value="100" >
-                </div>
-                <div>
-                    주기(sec)<input id="period"type="text" name="period" value="10000" >
-                </div>
-            </div>
-            <div class="inlineBlock">
-                <button id="calculate">파장 구하기</button>
-            </div>
-            <article>
-                <div>
-                    <span>kh =</span>
-                    <span id='answerkh'></span>
-                </div>
-                <div>
-                    <span>k =</span>
-                    <span id='answerk'></span>
-                </div>
-                <div>
-                    <span>L =</span>
-                    <span id="answerL"></span>
-                </div>
-            </article>
-            <article id="waveLength"></article>
-        </section>
-        <h3>위의 방법은</h3>
-        <ol>
-            <li>
-                <h4>수심 (h)와 주기 (T)가 주어졌을 때,</h4>
-            </li>
-            <li>
-                <h4>iteration을 이용해 kh를 구하고</h4>
-            </li>
-            <li>
-                <h4>kh를 이용해 파장을 구하는 방법을 이용하였다.</h4>
-            </li>
-        </ol>
-        <button id="quest1code">▲ 코드 보이기</button>
-        <div id="quest1sol"></div>
-
-        <!-- 2번 -->
-
-        <section class="questBox">
-            <h3>
-                원하는 주기를 1번의 박스에 적은 후 버튼 눌러주세요.
-            </h3>
-            <button id='makeGraph2'>그래프 그리기</button>
-            <div>
+            <section class="questBox">
                 <h3 class="quest">
-                    2. 일정한 주기에서 수심을 변화시켜 파장의 변화를 그래프로 표현하시오
+                    1. Dispersion relationship을 사용하여 주어진 수심(d)와 주기(T)에 대해 파장(L)을 계산하는 code를 작성하시오
                 </h3>
-                <div id="graphBox2" class="graphBox">
-                    <canvas id="graph2" width="20px" height="20px"></canvas>
+                <h5>
+                    중간 수심파 σ^2*h/gkh = tanh*kh 를 이용 (중력가속도:9.8m/s, 원주율:3.141592로 계산)
+                </h5>
+                <div class="inlineBlock">
+                    <div>
+                        수심(m)<input id='height' type="text" name="height" value="100" >
+                    </div>
+                    <div>
+                        주기(sec)<input id="period"type="text" name="period" value="10000" >
+                    </div>
                 </div>
-            </div>
-        </section>
+                <div class="inlineBlock">
+                    <button id="calculate">파장 구하기</button>
+                </div>
+                <article>
+                    <div>
+                        <span>kh =</span>
+                        <span id='answerkh'></span>
+                    </div>
+                    <div>
+                        <span>k =</span>
+                        <span id='answerk'></span>
+                    </div>
+                    <div>
+                        <span>L =</span>
+                        <span id="answerL"></span>
+                    </div>
+                </article>
+                <article id="waveLength"></article>
+            </section>
+            <h3>위의 방법은</h3>
+            <ol>
+                <li>
+                    <h4>수심 (h)와 주기 (T)가 주어졌을 때,</h4>
+                </li>
+                <li>
+                    <h4>iteration을 이용해 kh를 구하고</h4>
+                </li>
+                <li>
+                    <h4>kh를 이용해 파장을 구하는 방법을 이용하였다.</h4>
+                </li>
+            </ol>
+            <button id="quest1code">▲ 코드 보이기</button>
+            <div id="quest1sol" class="questsol"></div>
 
-        <!-- 3번 -->
+            <!-- 2번 -->
 
-        <section class="questBox">
-            <h3 class="quest">
-                3. 일정한 주기와 dispersion relationship을 통해 계산된 파장을 사용하여 shallow water 부터 deep water 까지 수심을 변화시켜 파랑의 속도(celerity=L/T)를 계산하고, shallow water celerity (=√gh)값과 비교하는 그래프를 그리시오
-            </h3>
-            <div id="graphBox3" class="graphBox">
-                <canvas id="graph3" width="20px" height="20px"></canvas>
-            </div>
-        </section>
+            <section class="questBox">
+                <h3>
+                    원하는 주기를 1번의 박스에 적은 후 버튼 눌러주세요.
+                </h3>
+                <button id='makeGraph2'>그래프 그리기</button>
+                <div>
+                    <h3 class="quest">
+                        2. 일정한 주기에서 수심을 변화시켜 파장의 변화를 그래프로 표현하시오
+                    </h3>
+                    <div id="graphBox2" class="graphBox">
+                        <canvas id="graph2" width="20px" height="20px"></canvas>
+                    </div>
+                </div>
+            </section>
 
-        <!-- 4번 -->
+            <!-- 3번 -->
 
-        <section class="questBox">
-            <h3 class="quest">
-                4. 정해진 주기에서 수심의 변화에 따른 위상속도와 군속도를 계산하고 비교하는 그래프를 그리시오.
-            </h3>
-            <div id="graphBox4" class="graphBox">
-                <canvas id="graph4" width="20px" height="20px"></canvas>
-            </div>
-        </section>
-    </main>
-        <footer>
-            <div id="conclusion"></div>
-            <div id="wrapper"></div>
-        </footer>
-    
-    <script type="text/javascript" src="./script.js"></script>
-    <script type="text/javascript" src="./question/quest1.js"></script>
-    <script type="text/javascript" src="./question/quest2.js"></script>
-    <script type="text/javascript" src="./question/quest3.js"></script>
-    <script type="text/javascript" src="./question/quest4.js"></script>
-    <script type="text/javascript" src="./contentJS/Appendix.js"></script>
-    <script type="text/javascript" src="./contentJS/introduction.js"></script>
-    <script type="text/javascript" src="./contentJS/conclusion.js"></script>
-    <script type="text/javascript" src="./contentJS/solution.js"></script>
-    <script type="text/javascript" src="./contentJS/quest1sol.js"></script>
-</body>
+            <section class="questBox">
+                <h3 class="quest">
+                    3. 일정한 주기와 dispersion relationship을 통해 계산된 파장을 사용하여 shallow water 부터 deep water 까지 수심을 변화시켜 파랑의 속도(celerity=L/T)를 계산하고, shallow water celerity (=√gh)값과 비교하는 그래프를 그리시오
+                </h3>
+                <div id="graphBox3" class="graphBox">
+                    <canvas id="graph3" width="20px" height="20px"></canvas>
+                </div>
+            </section>
+            
+            <!-- 4번 -->
+            
+            <section class="questBox">
+                <h3 class="quest">
+                    4. 정해진 주기에서 수심의 변화에 따른 위상속도와 군속도를 계산하고 비교하는 그래프를 그리시오.
+                </h3>
+                <div id="graphBox4" class="graphBox">
+                    <canvas id="graph4" width="20px" height="20px"></canvas>
+                </div>
+            </section>
+            <button id="quest234code">▲ 코드 보이기</button>
+            <section id="quest234sol" class="questsol">
+                <div>let graphObj = { </div>
+                <div>    xaxes2: [],</div>
+                <div>    arrL: [],</div>
+                <div>    arrC: [],</div>
+                <div>    shallowC: [],</div>
+                <div>    arrCg: [],</div>
+                <div> }</div>
+                
+                <div></div>let click2 = 0;</div>
+                
+                <div>function clearArr(){</div>
+                <div>    graphObj.xaxes2 = [];</div>
+                <div>    graphObj.arrL = [];</div>
+                <div>    graphObj.arrC = [];</div>
+                <div>    graphObj.shallowC = [];</div>
+                <div>    graphObj.arrCg = [];</div>
+                <div>}</div>
+                <div>function makeArr(){</div>
+                <div>    let period = +document.querySelector("input#period").value;</div>
+                <div>    if(graphObj.xaxes2.length != 0){</div>
+                <div>        clearArr();</div>
+                <div>    }</div>
+                <div>    for(let i=0; i <= 2000; i=i+50){</div>
+                <div>        graphObj.xaxes2.push(i);</div>
+                <div>        let khResult = calculatekh(i,period)</div>
+                <div>        let L = 2*pi/(khResult/i);</div>
+                <div>        let C = L/period;</div>
+                <div>        let shallowCelerity = Math.sqrt(i*9.8);</div>
+                <div>       let Cg = ((1+2*khResult/Math.sinh(2*khResult))/2)*C;</div>
+                <div>        graphObj.arrL.push(L);</div>
+                <div>       graphObj.arrC.push(C);</div>
+                <div>    graphObj.shallowC.push(shallowCelerity);</div>
+                <div>     graphObj.arrCg.push(Cg);</div>
+                <div>   }</div>
+                <div>}</div>
+            </section>
+        </main>
+            <footer>
+                <div id="conclusion"></div>
+                <div id="wrapper"></div>
+            </footer>
+        
+        <script type="text/javascript" src="./script.js"></script>
+        <script type="text/javascript" src="./question/quest1.js"></script>
+        <script type="text/javascript" src="./question/quest2.js"></script>
+        <script type="text/javascript" src="./question/quest3.js"></script>
+        <script type="text/javascript" src="./question/quest4.js"></script>
+        <script type="text/javascript" src="./contentJS/Appendix.js"></script>
+        <script type="text/javascript" src="./contentJS/introduction.js"></script>
+        <script type="text/javascript" src="./contentJS/conclusion.js"></script>
+        <script type="text/javascript" src="./contentJS/solution.js"></script>
+        <script type="text/javascript" src="./contentJS/quest1sol.js"></script>
+    </body>
 </html>

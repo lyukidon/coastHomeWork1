@@ -23,7 +23,7 @@ function makeArr(){
     for(let i=0; i <= 2000; i=i+50){
         graphObj.xaxes2.push(i);
         let khResult = calculatekh(i,period)
-        let L = 2*3.141592/(khResult/i);
+        let L = 2*pi/(khResult/i);
         let C = L/period;
         let shallowCelerity = Math.sqrt(i*9.8);
         let Cg = ((1+2*khResult/Math.sinh(2*khResult))/2)*C;

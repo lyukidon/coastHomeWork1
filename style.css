@@ -1,6 +1,6 @@
 body{
     margin: 0 auto;
-    width: 70vw;
+    width: 75vw;
 }
 .block{
     display: block;
@@ -17,9 +17,14 @@ body{
     margin: 20px 0px;
     padding: 20px;
 }
-#quest1sol{
-    display:none;
+.questsol{
     border: 1px solid gray;
     border-radius: 10px;
     padding: 20px;
+}
+#quest1sol{
+    display: none;
+}
+#quest234sol{
+    display: none;
 }
