@@ -12,7 +12,7 @@ Introduction
 
 천해(Shallow Wave)에서 파동의 속도는 수심에 비례한다.
 
-- σ^2 = (gk^2)h <=> C**2 = gk
+- σ^2 = (gk^2)h <=> C^2 = gk
 
 심해(Deep Sea)에서 파동의 속도는 수심 대비 파장의 길이와 관련이 있다.
 
