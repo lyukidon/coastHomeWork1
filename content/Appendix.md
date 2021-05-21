@@ -177,7 +177,7 @@ JavaScript
         let kh = 0;
 
 
-        while ( ( ( (2*3.141592/period)**2) *height) /(9.8*kh) >= Math.tanh(kh) ){
+        while ( ( ( (2*Math.PI/period)**2) *height) /(9.8*kh) >= Math.tanh(kh) ){
             kh=kh+0.001;
         }
 
@@ -212,7 +212,7 @@ JavaScript
         let answerk = +answerkh/+document.querySelector("input#height").value;
 
 
-        let answerL = 2*3.14/answerk;
+        let answerL = 2*Math.PI/answerk;
 
 
         document.querySelector('span#answerkh').innerHTML = answerkh;
@@ -293,7 +293,7 @@ JavaScript
             graphObj.xaxes2.push(i);
 
 
-            let L = 2*3.141592/(calculatekh(i,period)/i);
+            let L = 2*Math.PI/(calculatekh(i,period)/i);
 
 
             let C = L/i;
