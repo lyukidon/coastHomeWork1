@@ -1,4 +1,5 @@
-###이에 관한 코드는 다음과 같다.
+### 이에 관한 코드는 다음과 같다.
+#### 중간 수심파 σ^2*h/gkh = tanh*kh 를 이용해 kh를 구하기
 
 
 function calculatekh(height, period){
