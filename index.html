@@ -11,9 +11,9 @@
     </head>
     <body>
         <header>
-            <div id="introMD"></div>
+            <div id="introMD" class="questBox"></div>
         </header>
-        <main>
+        <main class="questBox">
             <div id="solution"></div>
 
             <!-- 1번 -->
@@ -23,14 +23,14 @@
                     1. Dispersion relationship을 사용하여 주어진 수심(d)와 주기(T)에 대해 파장(L)을 계산하는 code를 작성하시오
                 </h3>
                 <h5>
-                    σ^2*h/gkh = tanh*kh 를 이용 (중력가속도:9.8m/s, 원주율:3.141592로 계산)
+                    σ^2*h/gkh = tanh*kh 를 이용 (중력가속도:9.8m/s, 원주율:Math.PI로 계산)
                 </h5>
                 <div class="inlineBlock">
                     <div>
                         수심(m)<input id='height' type="text" name="height" value="100" >
                     </div>
                     <div>
-                        주기(sec)<input id="period"type="text" name="period" value="10000" >
+                        주기(sec)<input id="period"type="text" name="period" value="100" >
                     </div>
                 </div>
                 <div class="inlineBlock">
@@ -145,7 +145,7 @@
             </section>
         </main>
             <footer>
-                <div id="conclusion"></div>
+                <div id="conclusion" class="questBox"></div>
                 <div id="wrapper"></div>
             </footer>
         

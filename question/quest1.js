@@ -4,9 +4,10 @@ let pi = Math.PI
 function calculatekh(height, period){
     let kh = 0;
     while ( ( ( (2*pi/period)**2) *height) /(9.8*kh) >= Math.tanh(kh) ){
-        kh=kh+0.001;
+        kh=kh+0.01;
     }
-    return kh;
+    kh=Math.round(kh*100)/100;
+    return kh
 }
 function pushHT(){
     let height = +document.querySelector("input#height").value;

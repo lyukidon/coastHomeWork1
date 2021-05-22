@@ -20,7 +20,7 @@ function makeArr(){
     if(graphObj.xaxes2.length != 0){
         clearArr();
     }
-    for(let i=0; i <= 2000; i=i+50){
+    for(let i=0; i <= 10000; i=i+100){
         graphObj.xaxes2.push(i);
         let khResult = calculatekh(i,period)
         let L = 2*pi/(khResult/i);
