@@ -296,7 +296,7 @@ JavaScript
             let L = 2*Math.PI/(calculatekh(i,period)/i);
 
 
-            let C = L/i;
+            let C = L/period;
 
 
             let shallowCelerity = Math.sqrt(i*9.8);
